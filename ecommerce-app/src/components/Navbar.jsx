@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import {assets} from '../assets/assets'
+import {assets} from '../assets/assets/frontend_assets/assets.js'
 import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
