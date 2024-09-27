@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-key */
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, {useContext, useEffect, useState} from 'react'
 import { ShopContext } from '../context/ShopContext'
 import Title from './Title'
-import ProductItem from './Productitem';
+import ProductItem from './ProductItem';
 
 const LatestCollection = () => {
 
