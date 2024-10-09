@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { initializeApp } from "firebase/app";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { doc, getFirestore, setDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
 
@@ -36,8 +36,27 @@ const signup = async (username,email,password) =>{
       })
     } catch (error) {
         console.error(error)
-        toast.error(error.code)
+        toast.error(error.code.split('/')[1].split('-').join(" "))
     }
 }
 
-export {signup}
+const login = async(email, password) => {
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+  }catch (error){
+    console.error(error);
+    toast.error(error.code.split('/')[1].split('-').join(" "));
+  }
+}
+
+const logout = async () => {
+  try {
+    await signOut(auth)
+  } catch (error) {
+    console.error(error);
+    toast.error(error.code.split('/')[1].split('-').join(" "));
+  }
+  signOut(auth)
+}
+
+export {signup,login,logout,auth,db}
